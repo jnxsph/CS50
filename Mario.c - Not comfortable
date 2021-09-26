@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+    //Get Height or interger from User
+    int Height;
+    // Use do-while loop to cycle if user inputs a value out of range
+    do
+    {
+        Height = get_int("Height: ");
+    }
+    while (Height < 1 || Height > 8);
+
+    // Create another loop. Outer loop indicates how many rows are created
+    for (int i = 0; i < Height; i++)
+    {
+        //Inner loop indicates how many '#' is created in each row
+        for (int j = 0; j < Height; j++)
+        {
+            //j will represent the columns. Create an if-else statement to print # or ''
+            if (i + j >= Height - 1)
+
+                printf("#");
+
+            else
+
+                printf(" ");
+            // IMPORTANT: the logic here is that "#" and spaces depend on whether the sum of row and col is >= Height-1
+        }
+        //Move to the next row
+        printf("\n");
+    }
+}
